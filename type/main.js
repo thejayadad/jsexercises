@@ -1,4 +1,4 @@
-   const text = "Welcome to my website.";
+   const text = "Thanks for watching";
     const el = document.getElementById("typewriter");
     let index = 0;
 
