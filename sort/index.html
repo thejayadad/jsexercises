@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bubble Sort Visualizer</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background-color: #0f172a;
+      color: white;
+    }
+    #array {
+      display: flex;
+      align-items: flex-end;
+      height: 300px;
+      gap: 4px;
+      margin-bottom: 2rem;
+    }
+    .bar {
+      width: 20px;
+      background: #38bdf8;
+      transition: all 0.3s ease;
+    }
+    button {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      background: #38bdf8;
+      color: #0f172a;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="array"></div>
+  <button onclick="startSort()">Sort</button>
+
+  <script>
+    const container = document.getElementById("array");
+
+    // Generate initial bars
+    let values = Array.from({ length: 10 }, () => Math.floor(Math.random() * 100) + 10);
+    values.forEach(val => {
+      const bar = document.createElement("div");
+      bar.classList.add("bar");
+      bar.style.height = `${val * 2}px`;
+      container.appendChild(bar);
+    });
+
+    async function startSort() {
+      const bars = document.querySelectorAll(".bar");
+      for (let i = 0; i < bars.length; i++) {
+        for (let j = 0; j < bars.length - i - 1; j++) {
+          bars[j].style.background = "#facc15";
+          bars[j + 1].style.background = "#facc15";
+
+          await new Promise(r => setTimeout(r, 100));
+
+          const height1 = parseInt(bars[j].style.height);
+          const height2 = parseInt(bars[j + 1].style.height);
+
+          if (height1 > height2) {
+            bars[j].style.height = `${height2}px`;
+            bars[j + 1].style.height = `${height1}px`;
+          }
+
+          bars[j].style.background = "#38bdf8";
+          bars[j + 1].style.background = "#38bdf8";
+        }
+      }
+    }
+  </script>
+</body>
+</html>
