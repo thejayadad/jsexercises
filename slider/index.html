@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Comparison Slider</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      height: 100vh;
+      background: #0f172a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: sans-serif;
+    }
+    .container {
+      position: relative;
+      width: 90vw;
+      max-width: 800px;
+      height: 400px;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+    .img-wrapper {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+    }
+    .img-wrapper img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .img-wrapper.after {
+      width: 50%;
+      overflow: hidden;
+    }
+    .slider {
+      position: absolute;
+      top: 0; bottom: 0;
+      left: 50%;
+      width: 4px;
+      background: #38bdf8;
+      cursor: ew-resize;
+      z-index: 10;
+    }
+    input[type=range] {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="img-wrapper">
+      <img src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d" alt="before" />
+    </div>
+    <div class="img-wrapper after" id="afterWrapper">
+      <img src="https://images.unsplash.com/photo-1499084732479-de2c02d45fc4" alt="after" />
+    </div>
+    <div class="slider" id="slider"></div>
+    <input type="range" min="0" max="100" value="50" id="range" />
+  </div>
+
+  <script>
+    const range = document.getElementById('range');
+    const after = document.getElementById('afterWrapper');
+    const slider = document.getElementById('slider');
+
+    range.addEventListener('input', (e) => {
+      const val = e.target.value;
+      after.style.width = val + '%';
+      slider.style.left = val + '%';
+    });
+  </script>
+</body>
+</html>
