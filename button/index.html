@@ -5,55 +5,48 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Neon Button</title>
   <style>
-    * {
-      box-sizing: border-box;
-      padding: 0;
-      margin: 0;
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
     }
-
-    body {
-      height: 100vh;
-      background: #0f0f0f;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    body{
+        height: 100vh;
+        background-color: #0f0f0f;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
-
-    .neon-button {
-      font-size: 1.2rem;
-      padding: 1rem 2.5rem;
-      color: #fff;
-      background: transparent;
-      border: 2px solid #0ff;
-      border-radius: 8px;
-      cursor: pointer;
-      text-shadow: 0 0 5px #0ff;
-      box-shadow: 0 0 10px #0ff,
+    .neon-button{
+        font-size: 1.2rem;
+        padding: 1rem 2.5rem;
+        color: #fff;
+        border: 2px solid #0ff;
+        cursor: pointer;
+        border-radius: 8px;
+        text-shadow: 0 0 5px #0ff;
+        box-shadow: 0 0 10px #0ff,
                   0 0 20px #0ff,
                   0 0 40px #0ff;
-      position: relative;
-      transition: all 0.3s ease;
+        background-color: transparent;
+        transition: all .3s ease;
     }
-
-    .neon-button:hover {
-      background: #0ff;
-      color: #000;
-      text-shadow: none;
-      box-shadow: 0 0 20px #0ff,
+    .neon-button:hover{
+        background-color: #0ff;
+        color: #000;
+        text-shadow: none;
+        box-shadow: 0 0 20px #0ff,
                   0 0 40px #0ff,
                   0 0 60px #0ff;
     }
   </style>
 </head>
 <body>
-
-  <button class="neon-button">Click Me</button>
-
+<button class="neon-button">Click Here</button>
   <script>
     document.querySelector("button").addEventListener("click", () => {
-      alert("Button clicked!");
-    });
+        alert("Have a great day")
+    })
   </script>
-
 </body>
 </html>
